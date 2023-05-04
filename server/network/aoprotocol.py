@@ -371,7 +371,6 @@ class AOProtocol(asyncio.Protocol):
         if not self.client.is_checked:
             return
         if self.client.is_muted:  # Checks to see if the client has been muted by a mod
-            self.client.send_ooc("You are muted by a moderator.")
             return
 
         showname = ""
@@ -1246,7 +1245,6 @@ class AOProtocol(asyncio.Protocol):
         if (
             self.client.is_ooc_muted
         ):  # Checks to see if the client has been muted by a mod
-            self.client.send_ooc("You are muted by a moderator.")
             return
         if not self.validate_net_cmd(
             args, self.ArgType.STR_OR_EMPTY, self.ArgType.STR, needs_auth=False
@@ -1452,7 +1450,6 @@ class AOProtocol(asyncio.Protocol):
         if not self.client.is_checked:
             return
         if self.client.is_muted:  # Checks to see if the client has been muted by a mod
-            self.client.send_ooc("You are muted by a moderator.")
             return
         if not self.client.can_wtce:
             self.client.send_ooc(
@@ -1654,7 +1651,6 @@ class AOProtocol(asyncio.Protocol):
         if not self.client.is_checked:
             return
         if self.client.is_muted:  # Checks to see if the client has been muted by a mod
-            self.client.send_ooc("You are muted by a moderator.")
             return
         if self.client.area.cannot_ic_interact(self.client):
             self.client.send_ooc(
@@ -1742,7 +1738,6 @@ class AOProtocol(asyncio.Protocol):
             return
 
         if self.client.is_muted:  # Checks to see if the client has been muted by a mod
-            self.client.send_ooc("You are muted by a moderator.")
             return
 
         if not self.client.can_call_mod():
@@ -1771,7 +1766,7 @@ class AOProtocol(asyncio.Protocol):
         else:
             self.server.send_all_cmd_pred(
                 "ZZ",
-                "[{} UTC] {} ({}) in hub {} [{}]{} with reason: {}".format(
+                ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n== Mod Call! ==\n[{} UTC]\nChar: {}\nIPID: [{}]\nArea: {}\nReason: {}\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>".format(
                     current_time,
                     self.client.char_name,
                     self.client.ip,
