@@ -1643,7 +1643,7 @@ class Area:
             if silent:
                 client.send_command("BN", bg)
             else:
-                client.send_command("BN", bg, client.pos)
+                client.send_command("BN", bg)
 
     def change_status(self, value):
         """
