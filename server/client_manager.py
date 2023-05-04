@@ -1292,9 +1292,9 @@ class ClientManager:
             for c in sorted_clients:
                 info += "\r\n"
                 if c == self:
-                    info += "  ◽ "
+                    info += "►"
                 else:
-                    info += "  ◾ "
+                    info += ""
                 if c in area.afkers:
                     info += "💤"
                 if c.hidden:
@@ -1310,15 +1310,15 @@ class ClientManager:
                     info += "[CM]"
                 info += f"[{c.id}] "
                 if c.showname != c.char_name:
-                    info += f'"{c.showname}" ({c.char_name})'
+                    info += f'"{c.showname}" ({c.char_name}) - {c.name}'
                 else:
                     info += f"{c.showname}"
                 if c.pos != "":
-                    info += f" <{c.pos}>"
+                    info += f" "
                 if self.is_mod:
-                    info += f" ({c.ipid})"
+                    info += f" [{c.ipid}]"
                 if c.name != "" and (self.is_mod or self in area.owners):
-                    info += f": {c.name}"
+                    info += f""
             return info
 
         def send_areas_clients(self, mods=False, afk_check=False):
