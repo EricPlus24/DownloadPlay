@@ -260,14 +260,14 @@ class ClientManager:
             """Send the message of the day to the client."""
             motd = self.server.config["motd"]
             if motd != "":
-                self.send_ooc(f"📟MOTD📟\r\n{motd}\r\n")
+                self.send_ooc(f"== The Message of the Day! ==\r\n{motd}\r\n")
 
         def send_hub_info(self):
             """Send the hub info to the client."""
             info = self.area.area_manager.info
             if info != "":
                 self.send_ooc(
-                    f"🌍HUB [{self.area.area_manager.id}] {self.area.area_manager.name} INFO🌍\r\n{info}\r\n"
+                    f"HUB [{self.area.area_manager.id}] {self.area.area_manager.name} INFO\r\n{info}\r\n"
                 )
 
         def send_player_count(self):
@@ -277,7 +277,7 @@ class ClientManager:
             """
             players = self.server.player_count
             limit = self.server.config["playerlimit"]
-            self.send_ooc(f"👥{players}/{limit} players online.")
+            self.send_ooc(f"{players} Pokémon exploring now!")
 
         def is_valid_name(self, name):
             """
