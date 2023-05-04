@@ -256,6 +256,7 @@ def ooc_cmd_mute(client, arg):
                 msg = "Muted the IPID " + str(ipid) + "'s following clients:"
                 for c in clients:
                     c.is_muted = True
+                    c.is_ooc_muted = True
                     database.log_misc("mute", client, target=c)
                     msg += " " + c.showname + " [" + str(c.id) + "],"
                 msg = msg[:-1]
@@ -289,6 +290,7 @@ def ooc_cmd_unmute(client, arg):
                 msg = f"Unmuted the IPID ${str(ipid)}'s following clients:"
                 for c in clients:
                     c.is_muted = False
+                    c.is_ooc_muted = False
                     database.log_misc("unmute", client, target=c)
                     msg += " " + c.showname + " [" + str(c.id) + "],"
                 msg = msg[:-1]

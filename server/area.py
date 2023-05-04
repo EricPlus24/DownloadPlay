@@ -1306,7 +1306,7 @@ class Area:
         for char in "@$`|_~%\\}{":
             msg = msg.replace(char, "")
         # Very basic approximation of text length
-        delay = len(msg) * 40 + 40
+        delay = len(msg) * 50 + 120
         # Minimum area msg delay
         delay = max(self.min_msg_delay, delay)
         # Maximum area msg delay
@@ -1643,7 +1643,7 @@ class Area:
             if silent:
                 client.send_command("BN", bg)
             else:
-                client.send_command("BN", bg, client.pos)
+                client.send_command("BN", bg)
 
     def change_status(self, value):
         """

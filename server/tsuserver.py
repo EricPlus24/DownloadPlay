@@ -246,7 +246,7 @@ class TsuServer3:
                 and not client.hidden
             ):
                 area.broadcast_ooc(
-                    f"[{client.id}] {client.showname} has disconnected.")
+                    f"[{client.id}] {client.showname} has escaped from the Server! (Disconnect)")
             area.remove_client(client)
         self.client_manager.remove_client(client)
 
